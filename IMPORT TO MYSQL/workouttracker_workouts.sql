@@ -1,0 +1,54 @@
+-- MySQL dump 10.13  Distrib 8.0.15, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: workouttracker
+-- ------------------------------------------------------
+-- Server version	8.0.15
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+ SET NAMES utf8 ;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `workouts`
+--
+
+DROP TABLE IF EXISTS `workouts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `workouts` (
+  `workoutid` int(11) NOT NULL AUTO_INCREMENT,
+  `date` datetime NOT NULL,
+  `users_id` int(11) NOT NULL,
+  PRIMARY KEY (`workoutid`,`users_id`),
+  KEY `fk_workouts_users_idx` (`users_id`),
+  CONSTRAINT `fk_workouts_users` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=183 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `workouts`
+--
+
+LOCK TABLES `workouts` WRITE;
+/*!40000 ALTER TABLE `workouts` DISABLE KEYS */;
+INSERT INTO `workouts` VALUES (173,'2019-05-02 20:26:07',95),(174,'2019-05-02 20:26:48',95),(175,'2019-05-02 20:29:25',95),(176,'2019-05-02 20:34:40',95),(177,'2019-05-02 21:12:21',95),(178,'2019-05-06 04:57:42',95),(179,'2019-05-07 01:35:04',95),(180,'2019-05-07 01:42:24',95),(181,'2019-05-08 01:12:43',95),(182,'2019-05-08 01:21:59',95);
+/*!40000 ALTER TABLE `workouts` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2019-05-07 21:39:14
