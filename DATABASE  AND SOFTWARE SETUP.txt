@@ -1,0 +1,15 @@
+create a database in MySQL called workouttracker with the following parameters
+
+root password = CamelRacer9000      ---for database connection itself
+admin username = db_admin_5003
+admin password = 8523programming@62
+
+then import the four sql files from the MYSQL folder
+
+import the workoutTracker project to eclipse
+
+                                      *******************************
+make sure that you have installed swing into eclipse, as well as all necessary software components to run JFrames 
+(This program relies heavily on JFrames and JFrame components to properly function)
+                                      *******************************
+
