@@ -1,15 +1,15 @@
-create a database in MySQL called workouttracker with the following parameters
+1. create a database in MySQL called workouttracker with the following parameters
 
-root password = CamelRacer9000      ---for database connection itself
-admin username = db_admin_5003
-admin password = 8523programming@62
+    root password = CamelRacer9000      ---for database connection itself
+    admin username = db_admin_5003
+    admin password = 8523programming@62
 
-then import the four sql files from the MYSQL folder
+2. then import the four sql files into mySQL workbench from the MYSQL folder. If you do not have mySQL workbench installed, it is a pretty easy setup process, go to https://www.mysql.com/products/workbench/ and install the correct version and install it.
+3. run the .jar file WHILE MYSQL WORKBENCH IS RUNNING. if the mySQL workbench is not running the program will not be able to access the database.
 
-import the workoutTracker project to eclipse
+                                      **************or****************
 
-                                      *******************************
-make sure that you have installed swing into eclipse, as well as all necessary software components to run JFrames 
+***import the workoutTracker project to eclipse if you want to look through the source code, in this case, make sure that you have installed swing into eclipse, as well as all necessary software components to run JFrames 
 (This program relies heavily on JFrames and JFrame components to properly function)
                                       *******************************
 
