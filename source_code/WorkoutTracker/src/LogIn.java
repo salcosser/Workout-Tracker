@@ -137,39 +137,39 @@ public class LogIn {
 																.addAnnotatedClass(User.class)
 																.buildSessionFactory();
 			//create session
-				Session session = factory.getCurrentSession();
-				session.beginTransaction();
-				List<User> isReal = session.createQuery("from User u where u.username = '"+ user + "'").getResultList(); // should just be user
-				//check if there is any user in the database by that username, check if the password matches
-				if(isReal.size() >= 1) { //if the user is found
-					
-					/***IMPORTANT***
-					 * the following way of querying is necessary to prevent sql injections. this is the only place where this is used in this project
-					 * mostly because it is much more important to prevent users from signing into others accounts than to prevent a fake workout, which at 
-					 * most would cause the program to hit an exception.
-					 */
-					Query userS = session.createQuery("from User u where u.username = '"+ user + "' and u.password =:passw"); 
-					List<User> resolved = userS.setParameter("passw",pass).getResultList(); 
-					if(resolved.size() ==1) {	//if the user and pass are correct
-						User currUser = resolved.get(0);
-						System.out.println(currUser);
-						JOptionPane.showMessageDialog(Login, "welcome "+ resolved.get(0).getFullName());
-						System.out.println("welcome " + resolved.get(0).getFullName());
-						setUser(resolved.get(0));
-						Login.setVisible(false);
-						Homepage home = new Homepage(resolved.get(0)); //
-						home.frame.setVisible(true);
+					Session session = factory.getCurrentSession();
+					session.beginTransaction();
+					List<User> isReal = session.createQuery("from User u where u.username = '"+ user + "'").getResultList(); // should just be user
+					//check if there is any user in the database by that username, check if the password matches
+					if(isReal.size() >= 1) { //if the user is found
+						
+						/***IMPORTANT***
+						 * the following way of querying is necessary to prevent sql injections. this is the only place where this is used in this project
+						 * mostly because it is much more important to prevent users from signing into others accounts than to prevent a fake workout, which at 
+						 * most would cause the program to hit an exception.
+						 */
+						Query userS = session.createQuery("from User u where u.username = '"+ user + "' and u.password =:passw"); 
+						List<User> resolved = userS.setParameter("passw",pass).getResultList(); 
+						if(resolved.size() ==1) {	//if the user and pass are correct
+							User currUser = resolved.get(0);
+							System.out.println(currUser);
+							JOptionPane.showMessageDialog(Login, "welcome "+ resolved.get(0).getFullName());
+							System.out.println("welcome " + resolved.get(0).getFullName());
+							setUser(resolved.get(0));
+							Login.setVisible(false);
+							Homepage home = new Homepage(resolved.get(0)); //
+							home.frame.setVisible(true);
+						}
+						else { 	//if they arent correct
+							JOptionPane.showMessageDialog(Login, "Password incorrect.");
+							System.out.println("password does not match");
+						}
+						}
+					else { 	//if the user is not found
+						JOptionPane.showMessageDialog(Login, "No user found.");
+						System.out.println("none found.");
+						session.getTransaction().commit();
 					}
-					else { 	//if they arent correct
-						JOptionPane.showMessageDialog(Login, "Password incorrect.");
-						System.out.println("password does not match");
-					}
-					}
-				else { 	//if the user is not found
-					JOptionPane.showMessageDialog(Login, "No user found.");
-					System.out.println("none found.");
-					session.getTransaction().commit();
-				}
 			}
 			//misplaced setters and getters
 			private void setPassWord(String pass) {

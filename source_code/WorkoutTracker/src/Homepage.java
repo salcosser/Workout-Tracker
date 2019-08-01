@@ -221,5 +221,21 @@ public class Homepage {
 			}
 		});
 		frame.getContentPane().add(btnNewButton_1);
+		
+		
+		
+		JButton btnNewButton_2 = new JButton("Limit Pushed");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				PersonalBestTracker PRTrack = new PersonalBestTracker(cUser);
+				frame.setVisible(false);
+				PRTrack.frame.setVisible(true);
+			}
+		});
+		
+		
+		springLayout.putConstraint(SpringLayout.SOUTH, btnNewButton_2, -52, SpringLayout.NORTH, btnMyBest);
+		springLayout.putConstraint(SpringLayout.EAST, btnNewButton_2, -6, SpringLayout.WEST, btnTrackNewWorkout);
+		frame.getContentPane().add(btnNewButton_2);
 	}
 }
