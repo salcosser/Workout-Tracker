@@ -164,25 +164,24 @@ public class PersonalBestTracker {
 						rmx10 = rmx1 * .8;
 						rmx15 = rmx1 * .6;
 					}else if(reps == "5") {
-						rmx5 = weightU;
 						rmx1 = weightU * 1.05;
-						rmx10 = rmx1 * .8;
-						rmx15 = rmx1 * .6;
+						rmx5 = weightU;
+						rmx10 = rmx1 * .84;
+						rmx15 = rmx1 * .63;
 					}else if(reps == "10") {
 						rmx10 = weightU;
 						rmx1 = rmx10 * 1.2;
-						rmx5 = rmx1 * .95;
-						rmx15 = rmx1 * .6;
+						rmx5 = rmx10 * 1.14;
+						rmx15 = rmx10 * .72;
 					}else {
 						rmx15 = weightU;
 						rmx1 = rmx15 * 1.4;
-						rmx5 = rmx1 * .95;
-						rmx10 = rmx1 * .8;
+						rmx5 = rmx15 * 1.33;
+						rmx10 = rmx15 * 1.12;
 					}
 				double[] maxes = {rmx1, rmx5, rmx10, rmx15};
 				String[] readableMaxes = { "1 Rep Max: " + Double.toString(rmx1), "5 Rep Max: " + Double.toString(rmx5), "10 Rep Max:" + Double.toString(rmx10), "15 Rep Max: " + Double.toString(rmx15)};
-				maxPreview preview = new maxPreview(readableMaxes); 	// passing cUser to a new submitExercise frame
-				//frame.setVisible(false);
+				maxPreview preview = new maxPreview(readableMaxes); 
 				preview.frame.setVisible(true);
 				}catch(Exception e) {
 					JOptionPane.showMessageDialog(frame,"Please enter a weight.");
